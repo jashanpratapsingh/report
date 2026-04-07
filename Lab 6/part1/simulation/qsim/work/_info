@@ -1,0 +1,201 @@
+m255
+K3
+z0
+13
+cModel Technology
+d/media/USB30FD/reset/simulation/qsim
+Ehard_block
+Z0 w1775511575
+Z1 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z2 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 K`kJb<]?z4U5EbkG_:lMO3
+Z3 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z6 DPx10 cycloneive 21 cycloneive_components 0 22 HFZ8mBI5?[8TM9e2YGWCa2
+Z7 d/home/jashanpratap/Projects/Coe_608/Lab 6/part1/simulation/qsim
+Z8 8reset_circuit.vho
+Z9 Freset_circuit.vho
+l0
+L35
+VB]0;STalBkCB1_B4BXQDW2
+!s100 >mXi5[`cD`bFC`UBKA<om3
+Z10 OV;C;10.5b;63
+32
+Z11 !s110 1775511575
+!i10b 1
+Z12 !s108 1775511575.000000
+Z13 !s90 -work|work|reset_circuit.vho|
+Z14 !s107 reset_circuit.vho|
+!i113 1
+Z15 o-work work
+Z16 tExplicit 1 CvgOpt 0
+Astructure
+R1
+R2
+R3
+R4
+R5
+R6
+DEx4 work 10 hard_block 0 22 B]0;STalBkCB1_B4BXQDW2
+l65
+L51
+Via>5o7W??azG@W@@eFOTF0
+!s100 [5;Wd8QGQ>@2NGoJ1I]Y43
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Ereset_circuit
+R0
+R2
+R6
+R1
+Z17 DPx6 altera 11 dffeas_pack 0 22 zWCf]NF6heG=Dhmc@B0=T2
+R3
+R4
+R5
+Z18 DPx6 altera 28 altera_primitives_components 0 22 _Q9E2TD5YB<<@P0[5jYTG0
+R7
+R8
+R9
+l0
+L80
+VPQ4D7YccbC?TKHAVP7bM:3
+!s100 D[82M_SDgGXYT=^0C`ifc0
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Astructure
+R2
+R6
+R1
+R17
+R3
+R4
+R5
+R18
+DEx4 work 13 reset_circuit 0 22 PQ4D7YccbC?TKHAVP7bM:3
+l233
+L96
+VYiYz3;nJA5EHVe<Qk5<5D0
+!s100 dZ__K?1ZZO;>_McWdf4A40
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R15
+R16
+Ereset_circuit_vhd_vec_tst
+Z19 w1775511573
+R4
+R5
+R7
+Z20 8reset_circuit.vwf.vht
+Z21 Freset_circuit.vwf.vht
+l0
+L32
+V0SLhBJf4TjTH[j3h@Z?0a1
+!s100 17RC1R<V9IhPb:9S2CPJa1
+R10
+32
+R11
+!i10b 1
+R12
+Z22 !s90 -work|work|reset_circuit.vwf.vht|
+Z23 !s107 reset_circuit.vwf.vht|
+!i113 1
+R15
+R16
+Areset_circuit_arch
+R4
+R5
+DEx4 work 25 reset_circuit_vhd_vec_tst 0 22 0SLhBJf4TjTH[j3h@Z?0a1
+l49
+L34
+V;;Kf>DfKoHf9Mm8dMcTXU2
+!s100 ^;PZ6RMV^_cCMDTXWmAcm3
+R10
+32
+R11
+!i10b 1
+R12
+R22
+R23
+!i113 1
+R15
+R16
+vreset_circuit_vlg_check_tst
+!i10b 1
+!s100 XTN7Q<j@:Lc7`agEoW13e2
+I[@:GAlfelLA<k@DibGdWT2
+VZb6@KVdelz<WBKjZPdQY21
+Z24 d/home/student2/sgolabia/coe608/Lab6/part1/simulation/qsim
+Z25 w1427805649
+Z26 8reset_circuit.vwf.vt
+Z27 Freset_circuit.vwf.vt
+L0 59
+Z28 OV;L;10.1d;51
+r1
+!s85 0
+31
+Z29 !s108 1427805656.337115
+Z30 !s107 reset_circuit.vwf.vt|
+Z31 !s90 -work|work|reset_circuit.vwf.vt|
+!s101 -O0
+Z32 o-work work -O0
+vreset_circuit_vlg_sample_tst
+!i10b 1
+!s100 ^[]@5=CmRz5m@bP7Wc:ah3
+II=O_cBeL9<RV]=IA=64ao1
+VchRe=FW_oUGW3cVWBH<T[2
+R24
+R25
+R26
+R27
+L0 29
+R28
+r1
+!s85 0
+31
+R29
+R30
+R31
+!s101 -O0
+R32
+vreset_circuit_vlg_vec_tst
+!s110 1491773682
+!i10b 1
+!s100 B47P64]?dn5GLC=>zBHB60
+IFUQWKBU?JcSoWkHULVW=i0
+VDg1SIo80bB@j0V0VzS_@n1
+d/home/student2/njegaraj/coe608/past/anu/Lab6/part1/simulation/qsim
+w1491773678
+8nish_reset_circuit.vwf.vt
+Fnish_reset_circuit.vwf.vt
+L0 30
+OV;L;10.4d;61
+r1
+!s85 0
+31
+!s108 1491773682.000000
+!s107 nish_reset_circuit.vwf.vt|
+!s90 -work|work|nish_reset_circuit.vwf.vt|
+!i113 1
+R15

@@ -1,0 +1,70 @@
+DE2-115 Bonus CPU Bring-Up Procedure
+====================================
+
+Project files
+- Project: CPU_TEST_Sim_DE2_115.qpf
+- Revision: CPU_TEST_Sim_DE2_115
+- Top-level: CPU_TEST_Sim.bdf
+- Memory image: system_memory.mif
+
+1) Build/Compile
+----------------
+From the bonus folder run:
+  quartus_sh --flow compile CPU_TEST_Sim_DE2_115
+
+Pass conditions:
+- No missing source file errors
+- No duplicate top-level/entity errors
+- No unconstrained critical I/O for:
+  CLOCK_50, KEY[3..0], SW[17..0], HEX0..HEX7, LEDG, LEDR[9..8], LCD_*
+- MIF load reported for system_memory.mif
+
+2) Program Board
+----------------
+- Open Quartus Programmer
+- Select generated .sof from output_files/
+- Program the DE2-115 board
+
+3) Initial Hardware Sanity
+--------------------------
+- Ensure board power is stable
+- Set SW[0] = 0 initially (CPU stopped)
+- Press/release KEY[0] once:
+  * KEY is active-low on board
+  * Design converts KEY[0] into active-high reset internally
+  * LCD controller is always enabled in this revision
+
+Expected:
+- HEX0 shows numeric T_info state (0..7), HEX1..HEX7 are forced to 0
+- LEDR[9..8] and LEDG[7..0] are not stuck
+- LCD backlight/control active (LCD_ON high, LCD_EN toggling)
+
+4) Execution Checks (Current Memory Program)
+--------------------------------------------
+- With SW[0] = 0, confirm CPU state is held (HEX/LCD stable)
+- Set SW[0] = 1 to run CPU continuously from CLOCK_50
+- Observe LCD line 1 shows A value updates and line 2 shows B value updates
+- Observe T_info state transitions on HEX0 while running
+
+5) Bonus Program Demonstration Flow
+-----------------------------------
+For each required lab bonus program:
+- Update system_memory.mif with assembled machine code
+- Recompile
+- Reprogram board
+- Run this sequence:
+  a) Assert reset with KEY[0] press
+  b) Release reset
+  c) Let CPU run/step according to your demo method
+  d) Capture final visible result signature (HEX/LCD/LED)
+
+Problem 1 (if/else-if/else):
+- Verify final register/memory state matches branch path expectation
+
+Problem 2 (iterative multiply/power style loop):
+- Verify final register/memory state matches loop-computed expected value
+
+6) Stability Check
+------------------
+- Repeat reset-run cycle three times for each problem image
+- Pass if final result signature is identical across all runs

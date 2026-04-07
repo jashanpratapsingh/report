@@ -1,0 +1,112 @@
+# vsim -c work.CPU_TEST_Sim -do "force -freeze sim:/CPU_TEST_Sim/cpuClk 0 0ns, 1 10ns -repeat 20ns; force -freeze sim:/CPU_TEST_Sim/memClk 0 0ns, 1 10ns -repeat 20ns; force -freeze sim:/CPU_TEST_Sim/rst 0 0ns, 1 80ns; run 2us; puts "LD_A1:"; examine sim:/CPU_TEST_Sim/main_processor/Ld_A1; puts "LD_B1:"; examine sim:/CPU_TEST_Sim/main_processor/Ld_B1; puts "IR:"; examine -radix hex sim:/CPU_TEST_Sim/outIR; quit -f" 
+# Start time: 19:56:14 on Apr 06,2026
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.cpu_test_sim(behavior)
+# Loading altera_mf.altera_mf_components
+# Loading work.system_memory(syn)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading altera_mf.altera_common_conversion(body)
+# Loading altera_mf.altera_device_families(body)
+# Loading altera_mf.altsyncram(translated)
+# Loading work.cpu1(behavior)
+# Loading work.datapath(description)
+# Loading work.mux_3(description)
+# Loading work.reg32(description)
+# Loading work.lze(behv)
+# Loading work.uze(behv)
+# Loading work.red(behaviour)
+# Loading work.mux_2(description)
+# Loading work.alu32(description)
+# Loading work.pc(description)
+# Loading work.data_mem(description)
+# Loading work.reg1(description)
+# Loading work.control(description)
+# Loading work.reset_circuit(description)
+# force -freeze sim:/CPU_TEST_Sim/cpuClk 0 0ns, 1 10ns -repeat 20ns
+#  force -freeze sim:/CPU_TEST_Sim/memClk 0 0ns, 1 10ns -repeat 20ns
+#  force -freeze sim:/CPU_TEST_Sim/rst 0 0ns, 1 80ns
+#  run 2us
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/i386-linux-gnu/libpthread.so.0 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/i386-linux-gnu/librt.so.1 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/i386-linux-gnu/libdl.so.2 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/i386-linux-gnu/libm.so.6 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/i386-linux-gnu/libc.so.6 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/ld-linux.so.2 : module was loaded at an absolute address.
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_test_sim/main_processor/Dpth/D1
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_test_sim/main_processor/Dpth/D1
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cpu_test_sim/main_processor/Dpth/ALU
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 10 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 10 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 10 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 10 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 20 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 20 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 20 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 20 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 20 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 30 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 30 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 30 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 30 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 30 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 30 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 40 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 40 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 40 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 40 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 40 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 40 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 40 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 40 ns  Iteration: 1  Instance: /cpu_test_sim/main_memory/altsyncram_component
+#  puts "LD_A1:"
+#  examine sim:/CPU_TEST_Sim/main_processor/Ld_A1
+# 0
+#  puts "LD_B1:"
+#  examine sim:/CPU_TEST_Sim/main_processor/Ld_B1
+# 0
+#  puts "IR:"
+#  examine -radix hex sim:/CPU_TEST_Sim/outIR
+# 00000000
+#  quit -f
+# End time: 19:56:14 on Apr 06,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 38

@@ -1,0 +1,78 @@
+-- Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, the Altera Quartus Prime License Agreement,
+-- the Altera MegaCore Function License Agreement, or other 
+-- applicable license agreement, including, without limitation, 
+-- that your use is for the sole purpose of programming logic 
+-- devices manufactured by Altera and sold by Altera or its 
+-- authorized distributors.  Please refer to the applicable 
+-- agreement for further details.
+
+-- Quartus Prime generated Memory Initialization File (.mif)
+
+WIDTH=32;
+DEPTH=64;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+	-- Arithmetic / logic / shifts / clear instructions
+	00  :   00000005;  -- LDAI 0x0005
+	01  :   10000006;  -- LDBI 0x0006
+	02  :   70000000;  -- ADD
+	03  :   71000003;  -- ADDI 0x0003
+	04  :   72000000;  -- SUB
+	05  :   73000000;  -- INCA
+	06  :   7E000000;  -- DECA
+	07  :   74000000;  -- ROL
+	08  :   7F000000;  -- ROR
+	09  :   79000008;  -- ANDI 0x0008
+	0A  :   7D000005;  -- ORI 0x0005
+	0B  :   75000000;  -- CLRA
+	0C  :   76000000;  -- CLRB
+	0D  :   77000000;  -- CLRC
+	0E  :   78000000;  -- CLRZ
+
+	-- LUI / memory data path (STA/STB/LDA/LDB)
+	0F  :   0000FFFF;  -- LDAI 0xFFFF
+	10  :   40001111;  -- LUI  0x1111 -> A = 0x11110000
+	11  :   20000020;  -- STA  data_mem[0x20] = A
+	12  :   30000021;  -- STB  data_mem[0x21] = B
+	13  :   90000020;  -- LDA  A = data_mem[0x20]
+	14  :   A0000021;  -- LDB  B = data_mem[0x21]
+	15  :   7B000000;  -- AND
+
+	-- BEQ test (taken)
+	16  :   00000001;  -- LDAI 1
+	17  :   10000001;  -- LDBI 1
+	18  :   72000000;  -- SUB => Z = 1
+	19  :   6000001C;  -- BEQ 0x1C (taken)
+	1A  :   0000FFFF;  -- skipped if BEQ works
+	1B  :   5000001D;  -- skipped if BEQ works
+	1C  :   00002222;  -- branch target
+
+	-- BNE test (taken)
+	1D  :   00000003;  -- LDAI 3
+	1E  :   10000001;  -- LDBI 1
+	1F  :   72000000;  -- SUB => Z = 0
+	20  :   80000023;  -- BNE 0x23 (taken)
+	21  :   0000EEEE;  -- skipped if BNE works
+	22  :   50000024;  -- skipped if BNE works
+	23  :   00003333;  -- branch target
+
+	-- JMP test
+	24  :   50000027;  -- JMP 0x27
+	25  :   00004444;  -- skipped if JMP works
+	26  :   00005555;  -- skipped if JMP works
+	27  :   00006666;  -- jump target
+
+	-- Hold address to stabilize final waveform region
+	28  :   50000028;  -- self jump
+	[29..3F]  :   00000000;
+END;

@@ -4,16 +4,34 @@ DEPTH=64;
 ADDRESS_RADIX=HEX;
 DATA_RADIX=HEX;
 
+-- Problem 1 bonus: IF(a==b) branch1; else if(a>b) branch2; else continue;
+-- Registers: A = a, B = b. After SUB, BEQ then BGU (opcode 0xB) then JMP.
+-- Signatures: branch1 -> A=0x1111, branch2 -> A=0x2222, continue -> A=0x3333
+-- Demo values: a=5, b=3 -> branch2. Use a=4,b=4 for branch1; a=2,b=9 for continue.
+
 CONTENT BEGIN
-	00  :   10000003;
-	01  :   00000003;
-	02  :   70000000;
-	03  :   79000007;
-	04  :   07A00008;
-	05  :   A0000001;
-	06  :   75000000;
-	07  :   00000000;
-	08  :   75000000;
-	[09..3E]  :   00000000;
-	3F  :   73000000;
+	-- main
+	00  :   00000005;  -- LDAI 5   ; a
+	01  :   10000003;  -- LDBI 3   ; b
+	02  :   72000000;  -- SUB      ; A=a-b, Z, C for branches
+	03  :   60000010;  -- BEQ 0x10 ; if a==b -> branch1
+	04  :   B0000014;  -- BGU 0x14 ; else if a>b (unsigned) -> branch2
+	05  :   50000018;  -- JMP 0x18 ; else continue
+	[06..0F]  :   5000001C;  -- pad -> merge (halt)
+
+	-- branch1()
+	10  :   00001111;  -- LDAI 0x1111
+	11  :   5000001C;  -- JMP merge
+
+	-- branch2()
+	14  :   00002222;  -- LDAI 0x2222
+	15  :   5000001C;  -- JMP merge
+
+	-- continue
+	18  :   00003333;  -- LDAI 0x3333
+	19  :   5000001C;  -- JMP merge
+
+	-- merge / halt
+	1C  :   5000001C;  -- JMP 0x1C
+	[1D..3F]  :   00000000;
 END;

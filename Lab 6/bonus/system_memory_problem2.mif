@@ -1,0 +1,30 @@
+WIDTH=32;
+DEPTH=64;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+-- Problem 2 bonus: a=1; for(i=1; i<6; i++) a = a * 2^i
+-- Unrolled: 1+2+3+4+5 = 15 one-bit left shifts (ROL); final A = 2^15 = 0x00008000
+-- Build: copy this file over system_memory.mif (or swap MIF in Quartus) for Problem 2 demo.
+
+CONTENT BEGIN
+	00  :   00000001;  -- LDAI 1
+	01  :   74000000;  -- ROL (15 total: i=1..5 => 1+2+3+4+5 shifts)
+	02  :   74000000;
+	03  :   74000000;
+	04  :   74000000;
+	05  :   74000000;
+	06  :   74000000;
+	07  :   74000000;
+	08  :   74000000;
+	09  :   74000000;
+	0A  :   74000000;
+	0B  :   74000000;
+	0C  :   74000000;
+	0D  :   74000000;
+	0E  :   74000000;
+	0F  :   74000000;
+	10  :   50000010;  -- JMP 0x10 ; halt
+	[11..3F]  :   00000000;
+END;

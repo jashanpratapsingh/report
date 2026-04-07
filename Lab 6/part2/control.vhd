@@ -388,6 +388,49 @@ if(enable='1') then
                                                IM_MUX2  <= "XX";
                                             end if;
 														  
+                                    when "1011" => --BGU (unsigned a>b after SUB: not Z and C)
+                                         if (statusZ = '0' and statusC = '1') then
+                                              clr_IR   <= '0';
+                                              ld_IR    <= '0';
+                                              ld_PC    <= '1';
+                                              inc_PC   <= '0';
+                                              clr_A    <= '0';
+                                              ld_A     <= '0';
+                                              clr_B    <= '0';
+                                              ld_B     <= '0';
+                                              clr_C    <= '0';
+                                              ld_C     <= '0';
+                                              clr_Z    <= '0';
+                                              ld_Z     <= '0';
+                                              ALU_op   <= "XXX";
+                                              REG_Mux  <= 'X';
+                                              DATA_Mux <= "XX";
+                                              A_mux    <= 'X';
+                                              B_mux    <= 'X';
+                                              IM_MUX1  <= 'X';
+                                              IM_MUX2  <= "XX";
+                                         else
+                                              clr_IR   <= '0';
+                                              ld_IR    <= '0';
+                                              ld_PC    <= '0';
+                                              inc_PC   <= '0';
+                                              clr_A    <= '0';
+                                              ld_A     <= '0';
+                                              clr_B    <= '0';
+                                              ld_B     <= '0';
+                                              clr_C    <= '0';
+                                              ld_C     <= '0';
+                                              clr_Z    <= '0';
+                                              ld_Z     <= '0';
+                                              ALU_op   <= "XXX";
+                                              REG_Mux  <= 'X';
+                                              DATA_Mux <= "XX";
+                                              A_mux    <= 'X';
+                                              B_mux    <= 'X';
+                                              IM_MUX1  <= 'X';
+                                              IM_MUX2  <= "XX";
+                                         end if;
+
                                      when "0111"=>
                                           case INST(27 DOWNTO 24) is
                                                     when "0000" => --ADDI

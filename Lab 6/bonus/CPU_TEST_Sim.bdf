@@ -4,6 +4,13 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
+Build top-level: CPU_TEST_Sim.vhd (wraps CPU_TEST_Sim_rtl).
+This BDF is the previous flat DE2-115 hookup; it does not match the
+slow gated CPU clock, LCD enable, T-state HEX0, or PC on HEX6/HEX7.
+Regenerate a block diagram from Quartus using CPU_TEST_Sim_rtl as a
+symbol, or edit this file only in the Block Editor after backup.
+*/
+/*
 Copyright (C) 1991-2013 Altera Corporation
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 

@@ -4,8 +4,10 @@ DE2-115 Bonus CPU Bring-Up Procedure
 Project files
 - Project: CPU_TEST_Sim_DE2_115.qpf
 - Revision: CPU_TEST_Sim_DE2_115
-- Top-level: CPU_TEST_Sim.bdf
-- Memory image: system_memory.mif
+- Top-level (compile): CPU_TEST_Sim.vhd -> CPU_TEST_Sim_rtl (+ cpu_run_clock, board_hex_out)
+- Block diagram: CPU_TEST_Sim.bdf (legacy flat schematic; see banner in file)
+- Memory image: system_memory.mif (Problem 1 default)
+- Alternate image: system_memory_problem2.mif (Problem 2; copy over system_memory.mif or replace file before compile)
 
 1) Build/Compile
 ----------------
@@ -35,21 +37,21 @@ Pass conditions:
   * LCD controller is always enabled in this revision
 
 Expected:
-- HEX0 shows numeric T_info state (0..7), HEX1..HEX7 are forced to 0
+- HEX0 shows numeric T_info (0..7); HEX1..HEX5 show blank (0); HEX6/HEX7 show PC[7:0] as two hex digits
 - LEDR[9..8] and LEDG[7..0] are not stuck
 - LCD backlight/control active (LCD_ON high, LCD_EN toggling)
 
 4) Execution Checks (Current Memory Program)
 --------------------------------------------
-- With SW[0] = 0, confirm CPU state is held (HEX/LCD stable)
-- Set SW[0] = 1 to run CPU continuously from CLOCK_50
+- With SW[0] = 0, confirm CPU state is held (HEX/LCD stable; PC display on HEX6/HEX7 stops advancing)
+- Set SW[0] = 1 to run the CPU on a slow divided clock (~2 Hz) for visible stepping
 - Observe LCD line 1 shows A value updates and line 2 shows B value updates
-- Observe T_info state transitions on HEX0 while running
+- Observe T_info on HEX0 and PC low byte on HEX6/HEX7 while running
 
 5) Bonus Program Demonstration Flow
 -----------------------------------
 For each required lab bonus program:
-- Update system_memory.mif with assembled machine code
+- Use the correct MIF (system_memory.mif for Problem 1, or system_memory_problem2.mif copied over it for Problem 2)
 - Recompile
 - Reprogram board
 - Run this sequence:
@@ -58,11 +60,15 @@ For each required lab bonus program:
   c) Let CPU run/step according to your demo method
   d) Capture final visible result signature (HEX/LCD/LED)
 
-Problem 1 (if/else-if/else):
-- Verify final register/memory state matches branch path expectation
+Problem 1 (if / else-if / else) — image: system_memory.mif
+- Flow: LDAI a, LDBI b, SUB, BEQ branch1, BGU branch2, JMP continue. BGU opcode nibble 0xB (branch if unsigned a>b after SUB: Z=0 and C=1).
+- Default demo (a=5, b=3): LCD line 1 final A = 0x00002222 (branch2). B = 3 until overwritten.
+- Other tests: change words at 0x00/0x01 — a=4,b=4 -> A = 0x00001111 (branch1); a=2,b=9 -> A = 0x00003333 (continue / else).
+- After branching, program merges to PC 0x1C self-JMP; PC low byte on HEX6/HEX7 settles with low byte 0x1C.
 
-Problem 2 (iterative multiply/power style loop):
-- Verify final register/memory state matches loop-computed expected value
+Problem 2 (for-loop power product) — image: system_memory_problem2.mif
+- Equivalent to a=1 then fifteen ROL (one-bit left shift) steps; final A = 0x00008000 (32768 = 2^15).
+- LCD line 1 should show 0x00008000 at idle on halt at PC 0x10 (HEX6/HEX7 show low byte 0x10).
 
 6) Stability Check
 ------------------
